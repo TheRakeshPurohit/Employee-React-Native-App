@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   screen: {
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height,
-    backgroundColor: 'blue',
+    backgroundColor: 'lightgreen',
   },
 });
 

@@ -8,8 +8,8 @@ import NewUser from './screens/NewUser';
 
 const AppStack = createStackNavigator({
   Home: HomeScreen,
-  Detail: DetailScreen,
   NewUser: NewUser,
+  Detail: DetailScreen,
 });
 
 export default createAppContainer(
@@ -20,7 +20,7 @@ export default createAppContainer(
       AppStack,
     },
     {
-      initialRouteName: 'NewUser',
+      initialRouteName: 'Home',
     },
   ),
 );

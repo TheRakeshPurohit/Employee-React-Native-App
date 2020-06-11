@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, ActivityIndicator} from 'react-native';
+import {View, FlatList, ActivityIndicator, Button} from 'react-native';
 import {ListItem, SearchBar} from 'react-native-elements';
 
 var id = 0;
@@ -95,6 +95,10 @@ class HomeScreen extends Component {
     }
     return (
       <View style={{flex: 1}}>
+        <Button
+          title="Add New Employee"
+          onPress={() => this.props.navigation.navigate('NewUser')}
+        />
         <FlatList
           data={this.state.data}
           {...console.warn(this.state.data)}

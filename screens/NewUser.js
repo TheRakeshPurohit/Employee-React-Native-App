@@ -1,8 +1,22 @@
 import React, {Component} from 'react';
-import {View, Text, SafeAreaView, StyleSheet, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  Dimensions,
+  Button,
+} from 'react-native';
 import {Input} from 'react-native-elements';
 
 class NewUser extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      st_eMail: null,
+    };
+  }
+
   render() {
     return (
       <SafeAreaView>
@@ -10,9 +24,24 @@ class NewUser extends Component {
           <Text>Add New Employee</Text>
           <Input placeholder="Enter Employee First Name" />
           <Input placeholder="Enter Employee Last Name" />
-          <Input placeholder="Enter Employee Email" />
-          <Input placeholder="Enter Employee Address" />
+          <Input
+            placeholder="Enter Employee Email"
+            keyboardType="email-address"
+          />
+          <Input
+            placeholder="Enter Employee Address"
+            onChangeText={value => this.setState({st_eMail: value})}
+            value={this.state.st_eMail}
+          />
           <Input placeholder="Enter Employee Balance" />
+          <Button
+            title="Show Employee Detail"
+            onPress={() =>
+              this.props.navigation.navigate('Detail', {
+                name: Math.floor(Math.random() * 100),
+              })
+            }
+          />
         </View>
       </SafeAreaView>
     );
