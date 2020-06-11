@@ -13,7 +13,6 @@ TrackMe is a cross platfrom mobile application developed with React Native.
 API Used:
   - https://randomapi.com/api/6de6abfedb24f889e0b5f675edc50deb (for Data)
   - https://randomuser.me/api/portraits/men/USER_ID.jpg (for image)
-  - Export documents as Markdown, HTML and PDF
 
 ### Tech
 
