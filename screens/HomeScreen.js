@@ -21,11 +21,11 @@ class HomeScreen extends Component {
     this.makeRemoteRequest();
   }
 
-  makeRemoteRequest = async () => {
+  makeRemoteRequest = () => {
     const url = 'https://randomapi.com/api/6de6abfedb24f889e0b5f675edc50deb';
     this.setState({loading: true});
 
-    await fetch(url)
+    fetch(url)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -59,7 +59,7 @@ class HomeScreen extends Component {
     });
 
     const newData = this.arrayholder.filter(item => {
-      const itemData = `${item.first.toUpperCase()} ${item.last.toUpperCase()}`;
+      const itemData = '${item.first.toUpperCase()} ${item.last.toUpperCase()}';
       const textData = text.toUpperCase();
 
       return itemData.indexOf(textData) > -1;
@@ -76,7 +76,7 @@ class HomeScreen extends Component {
         lightTheme
         round
         onChangeText={text => this.searchFilterFunction(text)}
-        autoCorrect={true}
+        autoCorrect={false}
         value={this.state.value}
       />
     );
@@ -84,28 +84,34 @@ class HomeScreen extends Component {
 
   render() {
     if (this.state.loading) {
-      return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <ActivityIndicator />
-        </View>
-      );
+      if (this.state.data === null) {
+        return (
+          <View
+            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <ActivityIndicator />
+          </View>
+        );
+      }
     }
     return (
       <View style={{flex: 1}}>
         <FlatList
           data={this.state.data}
+          {...console.warn(this.state.data)}
           renderItem={({item}) => (
             <ListItem
               leftAvatar={{
                 source: {
-                  uri: 'https://randomuser.me/api/portraits/men/' + id++ + '.jpg',
+                  uri: 'https://randomuser.me/api/portraits/men/' + id + '.jpg',
                 },
               }}
               title={`${item.first} ${item.last}`}
               subtitle={item.email}
             />
           )}
-          keyExtractor={item => item.email}
+          {...id + 1}
+          keyExtractor={item => item.first}
+          extraData={this.state.data}
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
         />

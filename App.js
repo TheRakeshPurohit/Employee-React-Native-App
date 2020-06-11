@@ -3,21 +3,24 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 //Activity
 import HomeScreen from './screens/HomeScreen';
-import EditScreen from './screens/EditScreen';
+import DetailScreen from './screens/DetailScreen';
+import NewUser from './screens/NewUser';
 
 const AppStack = createStackNavigator({
   Home: HomeScreen,
-  Edit: EditScreen,
+  Detail: DetailScreen,
+  NewUser: NewUser,
 });
 
 export default createAppContainer(
   createSwitchNavigator(
     {
-      Home : HomeScreen,
+      Home: HomeScreen,
+      NewUser: NewUser,
       AppStack,
     },
     {
-      initialRouteName: "Home",
+      initialRouteName: 'NewUser',
     },
   ),
 );
