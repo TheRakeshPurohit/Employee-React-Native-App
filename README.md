@@ -37,22 +37,3 @@ TrackMe uses:
 
 [Here]: <https://github.com/TheRakeshPurohit/Employee-React-Native-App.git>
 
-
-.
-└── Generated Admin panel (React)/
-    ├── public
-    ├── src/
-    │   ├── queries/
-    │   │   ├── ROUTE1.queries.js
-    │   │   ├── ROUTE2.queries.js
-    │   │   └── ...
-    │   ├── containers/
-    │   │   ├── ROUTE_NAME/
-    │   │   │   ├── ROUTE.schema.json
-    │   │   │   └── Route.jsx
-    │   │   └── ROUTE_NAME/
-    │   │       └── ...
-    │   └── components/
-    │       └── ReactTableComponent.jsx
-    ├── .env
-    └── package.json
